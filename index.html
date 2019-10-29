@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Firas makes TWITTLER</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+ 	<body>
+ 		
+ 		
+ 		 <input type = "text" id = "message" >
+ 		</br>
+ 		<input type="text" id = "username" >
+
+ 		<button id="button" >tweet</button>
+ 		
+ 		<div id="Body" style="color: blue;"></div>
+ 		
+ 			</br></br>
+ 		</div>
+ 		
+ 		<script src="jquery.js"></script>
+    <script src="data_generator.js"></script>
+    <script>
+    	
+      $(document).ready(function(){
+				var $Body = $('#Body');
+        $Body.html('');
+
+         $("#button").click(function() {
+        var message = $('#message').val();
+        var username = $('#username').val();
+        var creationDate = new Date();
+        
+        var newMessage = ' @ ' + username +  " : " + message + ' created at ' + creationDate;
+        
+        $($Body).append(newMessage);
+    
+         });
+
+
+         
+        var index = streams.home.length - 1;
+        while(index >= 0){
+          var tweet = streams.home[index];
+          var $tweet = $('<div></div>');
+      
+          $tweet.text(' @ ' + tweet.user +  " : " + tweet.message + ' created at ' + tweet.created_at);
+          $tweet.appendTo($Body); //addes the tweet to the body of the html page
+        	
+          index -= 1;
+          }
+         
+        
+     		      });
+      
+    </script>
+
+  </body>
+</html>
